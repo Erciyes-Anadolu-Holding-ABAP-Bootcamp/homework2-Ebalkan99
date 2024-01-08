@@ -1,0 +1,36 @@
+*&---------------------------------------------------------------------*
+*& Report ZEB_OPEN_SQL
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZEB_OPEN_SQL.
+
+Tables Zee_T001.
+
+DATA : gt_t001 type standard table of ZEE_T001,
+       gs_t001 type ZEE_T001,
+       gv_OGRENCINO type ZEE001D,
+       gv_CINSIYET type ZEE002D,
+       gv_AD type ZEE003D,
+       gv_SOYAD type ZE004D.
+
+*tablonun tamam#n# çekiyoruz.
+SELECT * FROM ZEE_T001 into table gt_t001 where cinsiyet eq 2 .
+
+*structure için
+SELECT SINGLE * FROM ZEE_T001 into gs_t001.
+*variable için
+SELECT SINGLE  OGRENCINO from zee_t001 into gv_OGRENCINO .
+
+*Önceden sadece ece idi .
+UPDATE zee_t001 set ad = 'ECE NUR' where OGRENCINO eq 1.
+
+gs_t001-ogrencino = 5.
+gs_t001-cinsiyet = '1'.
+gs_t001-Ad = 'MURAT'.
+gs_t001-soyad = 'BALKAN'.
+
+*insert zee_t001 from gs_t001.
+*DELETE FROM zee_t001 where ogrencino eq '5'.
+
+modify zee_t001 from gs_t001.
